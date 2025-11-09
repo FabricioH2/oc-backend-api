@@ -1,4 +1,4 @@
-name: backend-api
+name: oc-backend-api
 namespace: ffisa-dev
 
 image:
