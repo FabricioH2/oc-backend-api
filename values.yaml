@@ -1,0 +1,37 @@
+name: backend-api
+namespace: ffisa-dev
+
+image:
+  repository: fabricioph2/oc-backend-api
+  tag: 1
+
+replicas: 1
+
+resources:
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+service:
+  enabled: true
+  port: 3000
+  targetPort: 3000
+
+route:
+  enabled: true
+  host: ""
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 5
+
+statefulset:
+  enabled: false
+
+env:
+  - name: DATA_API_URL
+    value: "http://backend-data:80"
