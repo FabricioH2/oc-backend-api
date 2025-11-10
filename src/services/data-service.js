@@ -2,7 +2,7 @@
 const axios = require('axios');
 
 // URL del servicio de datos, que será definido en el Docker Compose o en el entorno de K8s
-const DATA_API_URL = process.env.DATA_API_URL || 'http://backend-data-service:3005'; 
+const DATA_API_URL = process.env.DATA_API_URL || 'http://oc-backend-data-service:3005'; 
 
 exports.getComments = async () => {
     // Reenvía la petición GET
