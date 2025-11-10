@@ -16,9 +16,16 @@ app.use(cors({
 }));
 app.use(express.json()); // Permite a Express leer JSON en el body de las peticiones
 
-// Rutas API
-app.use('/api', apiRoutes); 
+// Ruta de health check
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', message: 'API Gateway is running' });
+});
+
+// Rutas API (sin prefijo /api)
+app.use('/', apiRoutes); 
 
 app.listen(PORT, () => {
     console.log(`API Gateway corriendo en puerto ${PORT}`);
+    console.log(`Health check disponible en: http://0.0.0.0:${PORT}/health`);
+    console.log(`API disponible en: http://0.0.0.0:${PORT}/comments`);
 });
