@@ -3,7 +3,7 @@ namespace: ffisa-dev
 
 image:
   repository: fabricioph2/oc-backend-api
-  tag: 1
+  tag: "{{ tag }}"
 
 replicas: 1
 

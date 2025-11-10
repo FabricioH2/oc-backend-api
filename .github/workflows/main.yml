@@ -105,6 +105,12 @@ jobs:
           echo "Última versión encontrada: $LATEST_VERSION"
           echo "version=$LATEST_VERSION" >> $GITHUB_OUTPUT
 
+      - name: Update Image Tag
+        run: |
+          echo "Actualizando tag de imagen a ${{ github.run_number }}"
+          sed -i "s|{{ tag }}|${{ github.run_number }}|g" values.yaml
+          cat values.yaml
+
       - name: Deploy Backend API
         run: |
           CHART_VERSION="${{ steps.get-chart-version.outputs.version }}"
