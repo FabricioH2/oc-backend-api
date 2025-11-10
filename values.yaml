@@ -35,3 +35,6 @@ statefulset:
 env:
   - name: DATA_API_URL
     value: "http://oc-backend-data:80"
+
+networkPolicies:
+  enabled: true
