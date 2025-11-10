@@ -34,4 +34,4 @@ statefulset:
 
 env:
   - name: DATA_API_URL
-    value: "http://backend-data:80"
+    value: "http://oc-backend-data:80"
